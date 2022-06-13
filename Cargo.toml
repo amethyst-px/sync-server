@@ -1,0 +1,24 @@
+[package]
+name = "amethyst-server"
+version = "0.1.0"
+edition = "2021"
+
+# Optimize for size
+[profile.release]
+opt-level = "z"   # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.57"
+axum = { version = "0.5.7", features = ["ws"] }
+dashmap = "5.3.4"
+futures-util = "0.3.21"
+parking_lot = "0.12.1"
+tokio = { version = "1.19.2", features = ["full"] }
+tower-http = { version = "0.3.4", features = ["cors"] }
+tracing = "0.1.35"
+tracing-subscriber = "0.3.11"
